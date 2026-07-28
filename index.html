@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Museo Virtual | Mis Obras</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>Galería de Arte</h1>
+    <p>Explora mi colección completa de cuadros</p>
+  </header>
+
+  <section class="filtros-contenedor">
+    <input type="text" id="buscar-titulo" placeholder="Buscar por título...">
+    
+    <select id="filtro-tecnica">
+      <option value="todas">Todas las técnicas</option>
+      <option value="Óleo">Óleo</option>
+      <option value="Acrílico">Acrílico</option>
+      <option value="Acuarela">Acuarela</option>
+    </select>
+
+    <select id="filtro-genero">
+      <option value="todos">Todos los géneros</option>
+      <option value="Paisaje">Paisaje</option>
+      <option value="Abstracto">Abstracto</option>
+      <option value="Bodegón">Bodegón</option>
+      <option value="Retrato">Retrato</option>
+    </select>
+  </section>
+
+  <!-- Contenedor de las tarjetas -->
+  <main id="galeria" class="galeria-grid"></main>
+
+  <div id="modal" class="modal">
+    <button id="btn-cerrar" class="boton-cerrar">&times;</button>
+    
+    <img id="imagen-modal" src="" alt="Cuadro en pantalla completa">
+  </div>
+
+  <!-- Type="module" para poder importar data.js -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

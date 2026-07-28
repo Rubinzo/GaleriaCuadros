@@ -1,0 +1,255 @@
+/* Reseteo básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+/* Estilos del encabezado */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Sistema de Grid para la galería */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilos de la tarjeta */
+.tarjeta {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Contenedor de la imagen */
+.tarjeta-imagen {
+  width: 100%;
+  aspect-ratio: 4/3; 
+  overflow: hidden;
+  background-color: #eaeaea; /* Color de fondo mientras carga la imagen */
+}
+
+.tarjeta-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen sin deformarla para llenar el espacio */
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.tarjeta:hover .tarjeta-imagen img {
+  transform: scale(1.08); 
+}
+
+/* Información del cuadro */
+.tarjeta-info {
+  padding: 20px;
+}
+
+.tarjeta-info h2 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.tarjeta-info .meta {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.tarjeta-info .medidas {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+.tarjeta-info .descripcion {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+
+.tarjeta-imagen {
+  cursor: pointer; /* Cambia la flecha por la manito */
+}
+
+/* Modal*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.92); 
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.modal.activo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal img {
+  max-width: 95vw; 
+  max-height: 92vh; 
+  object-fit: contain; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  border-radius: 4px;
+}
+
+.boton-cerrar {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.2); 
+  color: white;
+  border: none;
+  border-radius: 50%; 
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1001; 
+}
+
+.boton-cerrar:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* Filtros */
+.filtros-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 0 20px;
+}
+
+.filtros-contenedor input,
+.filtros-contenedor select {
+  padding: 14px 18px;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #333;
+  background-color: #fff;
+  outline: none;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.filtros-contenedor input {
+  flex-grow: 1; 
+  max-width: 400px;
+}
+
+.filtros-contenedor select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 45px; 
+  
+  background-image: url("/img/flecha.svg");
+  background-repeat: no-repeat;
+  background-position: right 18px top 50%;
+  background-size: 10px auto;
+}
+
+/* Efecto al pasar el ratón */
+.filtros-contenedor input:hover,
+.filtros-contenedor select:hover {
+  border-color: #c4c4c4;
+}
+
+/* Efecto elegante al hacer clic (Anillo de enfoque) */
+.filtros-contenedor input:focus,
+.filtros-contenedor select:focus {
+  border-color: #222;
+  box-shadow: 0 0 0 3px rgba(34, 34, 34, 0.1);
+}
+
+/* =========================================
+   ESTADO VACÍO (CUANDO NO HAY RESULTADOS)
+   ========================================= */
+.sin-resultados {
+  /* Esto hace que el mensaje ocupe todas las columnas disponibles del grid */
+  grid-column: 1 / -1; 
+  
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 20px;
+  background-color: transparent;
+  
+  /* Borde punteado que da un aspecto de "espacio vacío" muy de diseño */
+  border: 2px dashed #dcdcdc; 
+  border-radius: 12px;
+  
+  color: #888;
+  font-size: 1.1rem;
+  font-weight: 300;
+  
+  /* Usamos flexbox para alinear el texto y el pseudo-icono */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Añadimos un pequeño icono antes del texto usando solo CSS */
+.sin-resultados::before {
+  content: '🖼️'; /* Icono de un cuadro */
+  font-size: 2.5rem;
+  filter: grayscale(100%); /* Lo ponemos en blanco y negro para mantener el estilo minimalista */
+  opacity: 0.4;
+}
