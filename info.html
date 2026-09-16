@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Autor | Museo Virtual</title>
+  <link rel="stylesheet" href="info.css">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="nav-principal">
+      <a href="index.html">Galería</a>
+      <a href="info.html" class="activo">Autor</a>
+    </nav>
+  </header>
+
+  <main class="contenedor-autor">
+    
+    <!-- SECCIÓN 1: BIOGRAFÍA (Split Screen) -->
+    <section class="bio-seccion">
+      <div class="bio-imagen">
+        <!-- Reemplaza esto con una foto tuya trabajando -->
+        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Retrato del autor en el estudio">
+      </div>
+      <div class="bio-texto">
+        <h1>Detrás del Lienzo</h1>
+        <p>El arte es mi lenguaje principal. A través del óleo, el acrílico y la exploración de texturas físicas, busco materializar emociones complejas y narrativas ocultas.</p>
+        <p>Mi proceso creativo alterna entre la disciplina técnica del lienzo tradicional y la libertad absoluta de los materiales reciclados en mis assemblages.</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: TRAYECTORIA (Línea de tiempo) -->
+    <section class="trayectoria-seccion">
+      <h2>Trayectoria y Certámenes</h2>
+      <div id="timeline-contenedor" class="timeline">
+        <!-- JS inyectará el currículum aquí -->
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: CUADROS PREMIADOS (Gran formato) -->
+    <section class="premios-seccion">
+      <h2>Galería de Honor</h2>
+      <p class="subtitulo-seccion">Obras galardonadas y menciones especiales</p>
+      <div id="premios-contenedor">
+        <!-- JS inyectará los premios aquí -->
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: EXPERIMENTAL (Masonry / Texturas) -->
+    <section class="experimental-seccion">
+      <h2>Más Allá del Lienzo</h2>
+      <p class="subtitulo-seccion">Assemblage, collage y relieves. (Pasa el ratón para ver el detalle de la textura)</p>
+      <div id="experimental-contenedor" class="masonry-grid">
+        <!-- JS inyectará las obras experimentales aquí -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Reutilizamos el Modal para las imágenes en grande -->
+  <div id="modal" class="modal">
+    <button id="btn-cerrar" class="boton-cerrar">&times;</button>
+    <img id="imagen-modal" src="" alt="Obra en pantalla completa">
+  </div>
+
+  <script type="module" src="info.js"></script>
+</body>
+</html>

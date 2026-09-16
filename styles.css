@@ -39,6 +39,32 @@ body {
   margin: 0 auto;
 }
 
+.nav-principal {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.nav-principal a {
+  text-decoration: none;
+  color: #888;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-principal a:hover,
+.nav-principal a.activo {
+  color: #111;
+  border-bottom: 2px solid #111;
+}
+
+
 /* Estilos de la tarjeta */
 .tarjeta {
   background-color: #fff;

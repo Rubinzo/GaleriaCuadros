@@ -19,3 +19,34 @@ id: 1,
           <p class="descripcion">${cuadro.descripcion}</p>
         </div>
       </article>
+
+
+  para filtrar cuadros premiados
+
+  // Importamos LA MISMA lista que usamos en la galería principal
+import { misCuadros } from './data.js';
+
+// 1. Filtramos SOLO los que tienen el atributo "premiado"
+const obrasPremiadas = misCuadros.filter(cuadro => cuadro.premiado);
+
+// 2. Filtramos SOLO los que tienen el atributo "imagenDetalle" (Assemblage)
+const obrasExperimentales = misCuadros.filter(cuadro => cuadro.imagenDetalle);
+
+// Y a partir de aquí, el código que ya teníamos para dibujarlos funciona igual:
+const premiosContenedor = document.getElementById('premios-contenedor');
+obrasPremiadas.forEach(obra => {
+  premiosContenedor.innerHTML += `
+    <article class="obra-hero">
+      <img src="${obra.imagen}" class="img-clickeable">
+      <div class="obra-hero-info">
+        <div class="premio-insignia">🏆 ${obra.premiado}</div>
+        <h3>${obra.titulo}</h3>
+      </div>
+    </article>
+  `;
+});
+
+
+
+
+prueba de cuentas

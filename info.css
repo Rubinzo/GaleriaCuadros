@@ -1,0 +1,307 @@
+/* =========================================
+   NAVEGACIÓN PRINCIPAL
+   ========================================= */
+.nav-principal {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.nav-principal a {
+  text-decoration: none;
+  color: #888;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-principal a:hover,
+.nav-principal a.activo {
+  color: #111;
+  border-bottom: 2px solid #111;
+}
+
+/* =========================================
+   ESTILOS DE LA PÁGINA "EL AUTOR"
+   ========================================= */
+.contenedor-autor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 80px 20px;
+}
+
+.subtitulo-seccion {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  margin-top: -10px;
+}
+
+/* 1. Biografía (Split Screen) */
+.bio-seccion {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 80px;
+}
+
+.bio-imagen {
+  flex: 1;
+}
+
+.bio-imagen img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  /* Filtro opcional para dar un tono más serio a la foto del autor */
+  filter: sepia(20%) grayscale(50%); 
+}
+
+.bio-texto {
+  flex: 1;
+}
+
+.bio-texto h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.bio-texto p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* 2. Trayectoria (Línea de Tiempo) */
+.trayectoria-seccion {
+  margin-bottom: 80px;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.trayectoria-seccion h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.timeline {
+  border-left: 2px solid #e2e2e2;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* El punto de la línea de tiempo */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -37px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background-color: #111;
+  border-radius: 50%;
+  border: 4px solid #fff; /* Crea un anillo blanco alrededor del punto */
+}
+
+.timeline-anio {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #111;
+  margin-bottom: 5px;
+}
+
+.timeline-info h3 {
+  font-size: 1.1rem;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.timeline-premio {
+  display: inline-block;
+  background-color: #f1f1f1;
+  color: #555;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* 3. Cuadros Premiados (Gran Formato) */
+.premios-seccion {
+  margin-bottom: 100px;
+}
+
+.premios-seccion h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.obra-hero {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom: 50px;
+}
+
+.obra-hero img {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.obra-hero-info {
+  padding: 30px;
+}
+
+.premio-insignia {
+  color: #b8860b; /* Tono dorado elegante */
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* 4. Arte Experimental (Assemblage / Texturas) */
+.experimental-seccion {
+  background-color: #e9e8e4; /* Fondo distinto, tono papel/tiza */
+  margin: 0 -20px -80px -20px; /* Expande la sección al borde de la pantalla */
+  padding: 60px 40px 100px 40px;
+}
+
+.experimental-seccion h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Grid tipo Pinterest (Masonry puro en CSS) */
+.masonry-grid {
+  column-count: 2;
+  column-gap: 30px;
+}
+
+.tarjeta-masonry {
+  break-inside: avoid; /* Evita que la tarjeta se parta a la mitad entre columnas */
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* 🌟 EFECTO DE TEXTURA (Hover Dual Image) */
+.imagen-dual {
+  position: relative;
+  width: 100%;
+  cursor: zoom-in;
+}
+
+.img-normal {
+  width: 100%;
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+/* La imagen de detalle está oculta por defecto por encima de la normal */
+.img-detalle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Al pasar el ratón, invertimos opacidades */
+.imagen-dual:hover .img-normal { opacity: 0; }
+.imagen-dual:hover .img-detalle { opacity: 1; }
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .bio-seccion { flex-direction: column; }
+  .masonry-grid { column-count: 1; }
+  .nav-principal { gap: 15px; }
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.92); /* Fondo oscuro */
+  z-index: 9999; /* Asegura que esté por encima de TODO */
+  
+  /* Centrado usando Flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+/* Esta es la clase que el JavaScript añade para mostrarlo */
+.modal.activo {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* La imagen en grande */
+.modal img {
+  max-width: 95vw;
+  max-height: 92vh;
+  object-fit: contain; /* Evita que la foto se deforme */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  border-radius: 4px;
+}
+
+/* El botón de la X para cerrar */
+.boton-cerrar {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 10000;
+}
+
+.boton-cerrar:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
